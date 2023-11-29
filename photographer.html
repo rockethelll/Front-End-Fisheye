@@ -1,37 +1,101 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+<html lang="fr">
+<head>
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+</head>
+<body>
+<header role="banner">
+    <a href="./index.html">
+        <img src="./assets/images/logo.png" class="logo" alt="Fisheye logo - Retour à la page d'accueil" aria-label="Retour à la page d'accueil">
+    </a>
+</header>
+<main id="main" aria-hidden="false">
+    <div class="photograph-header">
+        <div class="photograph-profile"></div>
+        <button class="contact_button" onclick="displayModal()" aria-label="Contact Me">Contactez-moi</button>
+        <div class="photograph-profile-photo"></div>
+    </div>
+    <div class="sorted-by">
+        <p id="listboxLabel" role="button">Trier par</p>
+        <ul
+            role="listbox"
+            tabindex="0"
+            id="listbox1"
+            aria-labelledby="listboxLabel"
+            aria-activedescendant="popularity"
+            aria-haspopup="true"
+            aria-expanded="false"
+        >
+            <li role="option" id="popularity" class="selected" aria-selected="true">Popularité</li>
+            <li role="option" id="date">Date</li>
+            <li role="option" id="title">Titre</li>
+        </ul>
+        <button id="sortDate">Date</button>
+        <button id="sortPopularity">Popularité</button>
+        <button id="sortTitle">Titre</button>
+    </div>
+    <div class="gallery-container"></div>
+    <div class="photographer-likes-price">
+        <div class="total-likes"><span class="display-likes"></span><em class="fas fa-heart"></em></div>
+        <div class="daily-price"><span class="display-price"></span>€ / jour</div>
+    </div>
+</main>
+
+<!-- Modal form -->
+<div id="contact_modal" tabindex="-1" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
+    <div class="modal">
+        <header>
+            <div class="header">
+                <h2 id="modalTitle" aria-label="Contact me">Contactez-moi</h2>
+                <img src="./assets/icons/close.svg" onclick="closeModal()" alt="Close button" class="close-btn" aria-label="Close contact form">
+            </div>
+            <p class="photographer-name" aria-label="Photographer name"></p>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+        <form>
+            <div>
+                <label for="firstName" aria-label="Prénom">Prénom</label>
+                <input id="firstName" type="text" aria-labelledby="firstName" name="firstName" required>
+            </div>
+            <div>
+                <label for="lastName" aria-label="Nom">Nom</label>
+                <input id="lastName" type="text" aria-labelledby="lastName" name="lastName" required>
+            </div>
+            <div>
+                <label for="email" aria-label="Email">Email</label>
+                <input id="email" type="email" aria-labelledby="email" name="email" required>
+            </div>
+            <div>
+                <label for="message" aria-label="Votre message">Votre message</label>
+                <textarea id="message" aria-labelledby="message" name="message"></textarea>
+            </div>
+            <button role="button" class="contact_button" type="submit" aria-label="Envoyer le formulaire">Envoyer
+            </button>
+        </form>
+    </div>
+</div>
+<!--Lightbox-->
+<div class="lightbox" tabindex="-1" aria-hidden="true" role="dialog">
+    <div class="lightbox__content">
+        <button class="lightbox__close" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox__prev" aria-label="Previous media">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox__next" aria-label="Next media">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox__media"></div>
+        <p class="lightbox__title"></p>
+    </div>
+</div>
+<script type="module" src="./scripts/pages/photographer.js"></script>
+<script src="./scripts/utils/contactForm.js"></script>
+<!--<script type="module" src="./scripts/templates/lightbox.js"></script>-->
+</body>
 </html>
