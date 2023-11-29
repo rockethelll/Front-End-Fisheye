@@ -234,7 +234,7 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
-    height: 1000px;
+    height: 960px;
     left: 50%;
     position: absolute;
     top: 25%;
@@ -264,7 +264,7 @@
 }
 
 .modal p {
-    font-size: 64px;
+    font-size: 48px;
     margin: 0;
 }
 

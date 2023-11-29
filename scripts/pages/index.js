@@ -1,5 +1,5 @@
 import Api from "../api/Api.js";
-import Photographer from "../../models/Photographer.js";
+import Photographer from "../models/Photographer.js";
 import PhotographerCard from "../templates/PhotographerCard.js";
 
 const photographersApi = new Api("./data/photographers.json");

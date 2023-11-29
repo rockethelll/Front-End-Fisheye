@@ -1,10 +1,19 @@
-/* eslint-disable no-unused-vars */
-
 const modal = document.getElementById("contact_modal");
 const body = document.querySelector('body');
 const main = document.querySelector('main');
 const openModalBtn = document.querySelector('.contact_button');
 const form = document.querySelector('form');
+
+export const ContactForm = (photographer) => {
+  const openModalBtn = document.querySelector('.open-modal');
+  const closeModalBtn = document.querySelector('.close-btn');
+
+  const photographerNameOnContactForm = document.querySelector('.photographer-name');
+  photographerNameOnContactForm.innerText = photographer.name;
+
+  openModalBtn.addEventListener('click', displayModal);
+  closeModalBtn.addEventListener('click', closeModal);
+};
 
 // Close the modal when the user clicks use Escape key
 const closeModalHandler = (e) => {

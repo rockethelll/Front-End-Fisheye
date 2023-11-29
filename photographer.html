@@ -15,11 +15,7 @@
     </a>
 </header>
 <main id="main" aria-hidden="false">
-    <div class="photograph-header">
-        <div class="photograph-profile"></div>
-        <button class="contact_button" onclick="displayModal()" aria-label="Contact Me">Contactez-moi</button>
-        <div class="photograph-profile-photo"></div>
-    </div>
+    <div class="photograph-header"></div>
     <div class="sorted-by">
         <p id="listboxLabel" role="button">Trier par</p>
         <ul
@@ -39,7 +35,7 @@
         <button id="sortPopularity">Popularité</button>
         <button id="sortTitle">Titre</button>
     </div>
-    <div class="gallery-container"></div>
+    <section class="gallery-container"></section>
     <div class="photographer-likes-price">
         <div class="total-likes"><span class="display-likes"></span><em class="fas fa-heart"></em></div>
         <div class="daily-price"><span class="display-price"></span>€ / jour</div>
@@ -52,7 +48,8 @@
         <header>
             <div class="header">
                 <h2 id="modalTitle" aria-label="Contact me">Contactez-moi</h2>
-                <img src="./assets/icons/close.svg" onclick="closeModal()" alt="Close button" class="close-btn" aria-label="Close contact form">
+                <img src="./assets/icons/close.svg" alt="Close button" class="close-btn"
+                     aria-label="Close contact form">
             </div>
             <p class="photographer-name" aria-label="Photographer name"></p>
         </header>
@@ -95,7 +92,7 @@
     </div>
 </div>
 <script type="module" src="./scripts/pages/photographer.js"></script>
-<script src="./scripts/utils/contactForm.js"></script>
+<script type="module" src="./scripts/utils/contactForm.js"></script>
 <!--<script type="module" src="./scripts/templates/lightbox.js"></script>-->
 </body>
 </html>
