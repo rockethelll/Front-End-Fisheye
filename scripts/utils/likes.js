@@ -17,6 +17,9 @@ export const toggleHeartIcon = () => {
       const heartLiked = heartUnliked.nextElementSibling;
       heartUnliked.classList.toggle('visible');
       heartLiked.classList.toggle('visible');
+      heartLiked.classList.contains('visible');
+      heartLiked.setAttribute('aria-hidden', 'false');
+      heartUnliked.setAttribute('aria-hidden', 'true');
     })
   });
 
@@ -25,6 +28,9 @@ export const toggleHeartIcon = () => {
       const heartUnliked = heartLiked.previousElementSibling;
       heartLiked.classList.toggle('visible');
       heartUnliked.classList.toggle('visible');
+      heartUnliked.classList.contains('visible');
+      heartLiked.setAttribute('aria-hidden', 'true');
+      heartUnliked.setAttribute('aria-hidden', 'false');
     })
   });
 }

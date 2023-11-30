@@ -22,8 +22,8 @@ export default class PhotographerMedias {
                         <div class="card__infos">
                             <h2 class="card__title">${media.title}</h2>
                                 <div class="card__likes" role="group" aria-label="Like button and number of likes">
-                                    <div class="card__likes-likes" aria-label="${media.likes} likes" tabindex='0'>${media.likes}</div> 
-                                    <div class="card__likes-hearts" aria-label="Like" data-id="${media.id}">
+                                    <div class="card__likes-likes" aria-label="${media.likes} likes" data-id="${media.id}" tabindex='0'>${media.likes}</div> 
+                                    <div class="card__likes-hearts" aria-label="Like">
                                         <i class='far fa-heart unliked visible' role='button' aria-label='Like the picture' aria-hidden='false' tabindex='0'></i>
                                         <i class='fas fa-heart liked' role='button' aria-label='Unlike the picture' aria-hidden='true' tabindex='0'></i>
                                     </div> 
