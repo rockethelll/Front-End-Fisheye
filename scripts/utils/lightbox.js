@@ -9,11 +9,33 @@ export const displayLightbox = (medias) => {
 
   const photographer = medias.photographer;
   const mediasList = medias.medias;
+  let currentIndex = 0;
 
-  mediaProvider.forEach(item => {
-    item.addEventListener('click', () => {
-      const mediaId = item.dataset.media;
-      console.log(mediaId)
+  mediaProvider.forEach(media => {
+    media.addEventListener('click', () => {
+      const mediaId = media.dataset.media;
+      currentIndex = mediasList.findIndex(media => media.id === +mediaId);
+
+      lightbox.style.display = 'flex';
+      lightbox.setAttribute('aria-hidden', 'false')
+
+      const main = document.querySelector('main');
+      main.setAttribute('aria-hidden', 'true');
+
+      closeBtn.focus();
+      lightboxContent();
     })
   })
+
+  const lightboxContent = () => {
+    const currentMedia = mediasList[currentIndex];
+
+    lightboxMedia.innerHTML = `
+      ${currentMedia.image ? `
+      <img src="./assets/images/${photographer.name}/${currentMedia.image}" alt="${currentMedia.title}">` 
+      : 
+      `<video controls aria-label="${currentMedia.title}"><source src="./assets/images/${photographer.name}/${currentMedia.video}" type="video/mp4"></video>`}
+    `;
+    lightboxTitle.innerHTML = currentMedia.title;
+  }
 }

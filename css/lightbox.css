@@ -18,17 +18,6 @@
     position: relative;
 }
 
-.lightbox.fadeOut {
-    opacity: 0;
-}
-
-.lightbox__loader {
-    width: 38px;
-    height: 38px;
-    opacity: 0.5;
-    background: url("../assets/images/loader.svg") no-repeat center center;
-}
-
 .lightbox button {
     color: #901C1C;
     border: none;
@@ -70,10 +59,11 @@
 }
 
 
-.lightbox__container {
+.lightbox__media {
     display: flex;
     justify-content: center;
     align-items: center;
+
     margin: 0 auto;
     background-color: lightblue;
     width: 80vw;
@@ -81,8 +71,8 @@
     border-radius: 5px;
 }
 
-.lightbox__container img,
-.lightbox__container video {
+.lightbox__media img,
+.lightbox__media video {
     width: 100%;
     height: 100%;
     object-fit: cover;
