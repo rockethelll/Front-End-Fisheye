@@ -1,7 +1,7 @@
 export default class PhotographerHeader {
   constructor(photographer) {
     this.photographer = photographer;
-  };
+  }
 
   createPhotographerHeader() {
 

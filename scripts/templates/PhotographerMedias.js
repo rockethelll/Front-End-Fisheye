@@ -2,7 +2,7 @@ export default class PhotographerMedias {
     constructor(photographer, medias) {
         this.photographer = photographer;
         this.medias = medias;
-    };
+    }
 
     createPhotographerMedias() {
         const gallery = document.querySelector('.gallery-container');
@@ -40,5 +40,5 @@ export default class PhotographerMedias {
 
         gallery.innerHTML = content;
         return content;
-    };
-};
+    }
+}

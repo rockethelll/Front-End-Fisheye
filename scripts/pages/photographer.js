@@ -5,6 +5,7 @@ import PhotographerHeader from "../templates/PhotographerHeader.js";
 import {ContactForm} from "../utils/contactForm.js";
 import PhotographerMedias from "../templates/PhotographerMedias.js";
 import {displayTotalLikes, toggleHeartIcon} from "../utils/likes.js";
+import {displayLightbox} from "../utils/lightbox.js";
 
 const photographersApi = new Api("./data/photographers.json");
 const params = new URL(document.location).searchParams;
@@ -33,9 +34,10 @@ const init = async () => {
   const photographerMedias = new PhotographerMedias(photographer, medias);
   photographerMedias.createPhotographerMedias();
 
-  ContactForm(photographer);
   displayTotalLikes();
+  ContactForm(photographer);
   toggleHeartIcon();
+  displayLightbox(photographerMedias);
 }
 
 init();

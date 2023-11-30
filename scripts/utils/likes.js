@@ -26,7 +26,6 @@ export const displayTotalLikes = async () => {
   });
 }
 
-
 export const toggleHeartIcon = () => {
   const heartsUnliked = document.querySelectorAll('.unliked');
   const heartsLiked = document.querySelectorAll('.liked');
@@ -63,8 +62,3 @@ export const toggleHeartIcon = () => {
     })
   });
 }
-
-// export const likeUnlikeMedia = () => {
-//   toggleHeartIcon();
-//
-// }
