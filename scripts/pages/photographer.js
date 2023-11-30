@@ -4,6 +4,7 @@ import MediasFactory from "../factories/MediasFactory.js";
 import PhotographerHeader from "../templates/PhotographerHeader.js";
 import {ContactForm} from "../utils/contactForm.js";
 import PhotographerMedias from "../templates/PhotographerMedias.js";
+import {displayTotalLikes} from "../utils/likes.js";
 
 const photographersApi = new Api("./data/photographers.json");
 const params = new URL(document.location).searchParams;
@@ -33,6 +34,7 @@ const init = async () => {
   photographerMedias.createPhotographerMedias();
 
   ContactForm(photographer);
+  displayTotalLikes(photographerMedias);
 }
 
 init();
