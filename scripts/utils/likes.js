@@ -1,64 +1,49 @@
 import {getPhotographerAndMedias} from "../pages/photographer.js";
 
+// Display the total number of likes
 export const displayTotalLikes = async () => {
-  const {medias} = await getPhotographerAndMedias();
-  const cardLikes = document.querySelectorAll('.card__likes-hearts');
+  const { medias } = await getPhotographerAndMedias();
+  const btnLikes = document.querySelectorAll('.card__likes');
 
-  const updateTotalLikes = () => {
-    const totalLikes = document.querySelector('.display-likes');
-    totalLikes.innerText = medias
-      .filter(media => media.likes)
-      .reduce((acc, media) => acc + media.likes, 0)
-  }
-  updateTotalLikes();
+  updateTotalLikes(medias);
 
   // Update the number of likes on the card
-  cardLikes.forEach(cardLike => {
-    cardLike.addEventListener('click', () => {
-      const mediaId = medias.find(media => media.id === +cardLike.dataset.id);
-      cardLike.classList.contains('isLiked') ? mediaId.likes++ : mediaId.likes--;
-
-      const likeMedia = cardLike.previousElementSibling;
-      likeMedia.innerText = mediaId.likes;
-
-      updateTotalLikes();
+  btnLikes.forEach(btnLike => {
+    btnLike.addEventListener('click', () => {
+      handleLikesAndHearts(medias, btnLike);
     })
-  });
-}
+  })
+};
 
-export const toggleHeartIcon = () => {
-  const heartsUnliked = document.querySelectorAll('.unliked');
-  const heartsLiked = document.querySelectorAll('.liked');
+// Update the total number of likes
+export const updateTotalLikes = (medias) => {
+  const totalLikes = document.querySelector('.display-likes');
+  totalLikes.innerText = medias
+    .filter(media => media.likes)
+    .reduce((acc, media) => acc + media.likes, 0);
+};
 
-  // Toggle heart icon when like-unlike a media
-  heartsUnliked.forEach(heartUnliked => {
-    heartUnliked.addEventListener('click', () => {
-      const cardLikes = heartUnliked.parentElement;
-      const heartLiked = heartUnliked.nextElementSibling;
-      // Remove the class 'visible' to the heart unliked and add it to the heart liked
-      heartUnliked.classList.toggle('visible');
-      heartLiked.classList.toggle('visible');
-      // Check if the heart liked has the class 'visible' and change the aria-hidden attribute
-      heartLiked.classList.contains('visible');
-      heartLiked.setAttribute('aria-hidden', 'false');
-      heartUnliked.setAttribute('aria-hidden', 'true');
-      cardLikes.classList.add('isLiked');
-    })
-  });
+// Change heart icon when like-unlike a media
+export const handleLikesAndHearts = (medias, btnLike) => {
+  const mediaId = medias.find(media => media.id === +btnLike.dataset.id);
+  !btnLike.classList.contains('isLiked') ? mediaId.likes++ : mediaId.likes--;
 
-  // Toggle heart icon when like-unlike a media
-  heartsLiked.forEach(heartLiked => {
-    heartLiked.addEventListener('click', () => {
-      const cardLikes = heartLiked.parentElement;
-      const heartUnliked = heartLiked.previousElementSibling;
-      // Remove the class 'visible' to the heart liked and add it to the heart unliked
-      heartLiked.classList.toggle('visible');
-      heartUnliked.classList.toggle('visible');
-      // Check if the heart unliked has the class 'visible' and change the aria-hidden attribute
-      heartUnliked.classList.contains('visible');
-      heartLiked.setAttribute('aria-hidden', 'true');
-      heartUnliked.setAttribute('aria-hidden', 'false');
-      cardLikes.classList.remove('isLiked');
-    })
-  });
-}
+  btnLike.classList.toggle('isLiked');
+
+  // Update the number of likes on the card
+  const likeMedia = btnLike.querySelector('.card__likes-likes');
+  likeMedia.innerText = mediaId.likes;
+
+  const heartUnliked = btnLike.querySelector('.unliked');
+  const heartLiked = btnLike.querySelector('.liked');
+
+  // Change heart icon when like-unlike a media
+  heartUnliked.classList.toggle('visible');
+  heartLiked.classList.toggle('visible');
+
+  // Change aria-hidden attribute when like-unlike a media
+  heartLiked.setAttribute('aria-hidden', heartLiked.getAttribute('aria-hidden') === 'true' ? 'false' : 'true');
+  heartUnliked.setAttribute('aria-hidden', heartUnliked.getAttribute('aria-hidden') === 'true' ? 'false' : 'true');
+
+  updateTotalLikes(medias);
+};

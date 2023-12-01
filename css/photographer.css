@@ -156,8 +156,13 @@
     cursor: pointer;
 }
 
-.fa-heart:focus-visible,
-.card__likes-likes:focus-visible {
+.card__likes {
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+.card__likes:focus-visible {
     outline: 3px solid #901C1C;
     border-radius: 5px;
     padding: 1px;
