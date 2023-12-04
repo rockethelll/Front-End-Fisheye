@@ -32,13 +32,13 @@
 }
 
 .photograph-profile h1 {
-    color: #D3573C;
+    color: var(--color-tertiary);
     font-size: 64px;
     margin: 0;
 }
 
 .photograph-profile h2 {
-    color: #901C1C;
+    color: var(--color-primary);
     font-size: 24px;
     margin: 0.4em 0 1em;
 }
@@ -67,12 +67,12 @@
 .contact_button {
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: var(--color-white);
     padding: 11px;
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
+    background-color: var(--color-primary);
     border-radius: 5px;
     cursor: pointer;
     margin: 2px;
@@ -88,13 +88,87 @@
     transform: scale(1.1);
 }
 
-/*.sorted-by {*/
-/*    display: flex;*/
-/*}*/
+.filters {
+    margin: 10px 100px 0;
+    display: flex;
+    align-items: center;
+}
 
-/*.sorted-by ul {*/
-/*    list-style: none;*/
-/*}*/
+#listboxLabel {
+    margin-right: 25px;
+}
+
+.filters__dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown_content {
+    list-style: none;
+    position: absolute;
+    top: 0;
+    width: 170px;
+    height: 170px;
+    /*background-color: #901C1C;*/
+    background-color: lightgreen;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.dropdown_content button {
+    text-align: left;
+    border: none;
+    color: var(--color-white);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 20px;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+}
+
+.dropdown_content button:hover {
+    background-color: var(--color-primary);
+}
+
+.dropdown_content li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.filters button:focus-visible {
+    outline: 3px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 1px;
+}
+
+.filters__dropdown .drop-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border: none;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    color: var(--color-white);
+    width: 170px;
+    height: 70px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
 
 .gallery-container {
     display: flex;
@@ -129,7 +203,7 @@
 }
 
 .gallery-container .card__title {
-    color: #901C1C;
+    color: var(--color-primary);
     font-size: 24px;
     margin: 0;
     white-space: nowrap;
@@ -144,14 +218,14 @@
 }
 
 .gallery-container .card__likes-likes {
-    color: #901C1C;
+    color: var(--color-primary);
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 500;
     margin-right: 10px;
 }
 
 .fa-heart {
-    color: #901C1C;
+    color: var(--color-primary);
     font-size: 20px;
     cursor: pointer;
 }
@@ -159,11 +233,11 @@
 .card__likes {
     border: none;
     cursor: pointer;
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 .card__likes:focus-visible {
-    outline: 3px solid #901C1C;
+    outline: 3px solid var(--color-primary);
     border-radius: 5px;
     padding: 1px;
 }
@@ -186,7 +260,7 @@
     width: 300px;
     height: 60px;
     border-radius: 5px 5px 0 0;
-    background: #DB8876;
+    background: var(--color-secondary);
     font-size: 24px;
 }
 
@@ -217,7 +291,7 @@
 
 .gallery-container .gallery__card a:focus {
     outline: none;
-    border: 3px solid #901C1C;
+    border: 3px solid var(--color-primary);
     border-radius: 10px;
     height: 315px;
 }
@@ -231,7 +305,7 @@
 
 .modal {
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: var(--color-secondary);
     width: 50vw;
     display: flex;
     flex-direction: column;

@@ -14,79 +14,83 @@
         <img src="./assets/images/logo.png" class="logo" alt="Fisheye logo - Retour à la page d'accueil" aria-label="Retour à la page d'accueil">
     </a>
 </header>
-<main id="main" aria-hidden="false">
+<main aria-hidden="false">
     <div class="photograph-header"></div>
-    <div class="sorted-by">
+    <div class="filters">
         <p id="listboxLabel" role="button">Trier par</p>
-        <ul
-            role="listbox"
-            tabindex="0"
-            id="listbox1"
-            aria-labelledby="listboxLabel"
-            aria-activedescendant="popularity"
-            aria-haspopup="true"
-            aria-expanded="false"
-        >
-            <li role="option" id="popularity" class="selected" aria-selected="true">Popularité</li>
-            <li role="option" id="date">Date</li>
-            <li role="option" id="title">Titre</li>
-        </ul>
-        <button id="sortDate">Date</button>
-        <button id="sortPopularity">Popularité</button>
-        <button id="sortTitle">Titre</button>
+        <div class="filters__dropdown">
+            <button class="drop-btn" type="button" role="button" aria-haspopup="listbox" aria-expanded="false"
+                    aria-controls="filter options" aria-label="Sort by">
+                <span id="current_filter">Titre</span>
+                <span class="fas fa-chevron-up" aria-hidden="true"></span>
+            </button>
+
+            <ul class="dropdown_content" aria-hidden="true" role="listbox" aria-activedescendant="">
+                <li role="option" aria-selected="false" aria-labelledby="listboxLabel">
+                    <button type="button" tabindex="-1" aria-label="Sort by title">Titre</button>
+                </li>
+                <li role="option" aria-selected="true" aria-labelledby="listboxLabel">
+                    <button type="button" tabindex="-1" aria-label="Sort by popularity">Popularité</button>
+                </li>
+                <li role="option" aria-selected="false" aria-labelledby="listboxLabel">
+                    <button type="button" tabindex="-1" aria-label="Sort by date">Date</button>
+                </li>
+            </ul>
+        </div>
     </div>
     <section class="gallery-container"></section>
-</main>
 
-<!-- Modal form -->
-<div id="contact_modal" tabindex="-1" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
-    <div class="modal">
-        <header>
-            <div class="header">
-                <h2 id="modalTitle" aria-label="Contact me">Contactez-moi</h2>
-                <img src="./assets/icons/close.svg" alt="Close button" class="close-btn"
-                     aria-label="Close contact form">
-            </div>
-            <p class="photographer-name" aria-label="Photographer name"></p>
-        </header>
-        <form>
-            <div>
-                <label for="firstName" aria-label="Prénom">Prénom</label>
-                <input id="firstName" type="text" aria-labelledby="firstName" name="firstName" required>
-            </div>
-            <div>
-                <label for="lastName" aria-label="Nom">Nom</label>
-                <input id="lastName" type="text" aria-labelledby="lastName" name="lastName" required>
-            </div>
-            <div>
-                <label for="email" aria-label="Email">Email</label>
-                <input id="email" type="email" aria-labelledby="email" name="email" required>
-            </div>
-            <div>
-                <label for="message" aria-label="Votre message">Votre message</label>
-                <textarea id="message" aria-labelledby="message" name="message"></textarea>
-            </div>
-            <button role="button" class="contact_button" type="submit" aria-label="Envoyer le formulaire">Envoyer
+
+    <!-- Modal form -->
+    <div id="contact_modal" tabindex="-1" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
+        <div class="modal">
+            <header>
+                <div class="header">
+                    <h2 id="modalTitle" aria-label="Contact me">Contactez-moi</h2>
+                    <img src="./assets/icons/close.svg" alt="Close button" class="close-btn"
+                         aria-label="Close contact form">
+                </div>
+                <p class="photographer-name" aria-label="Photographer name"></p>
+            </header>
+            <form>
+                <div>
+                    <label for="firstName" id="firstNameLabel" aria-label="Prénom">Prénom</label>
+                    <input id="firstName" type="text" aria-labelledby="firstNameLabel" name="firstName" required>
+                </div>
+                <div>
+                    <label for="lastName" id="lastNameLabel" aria-label="Nom">Nom</label>
+                    <input id="lastName" type="text" aria-labelledby="lastNameLabel" name="lastName" required>
+                </div>
+                <div>
+                    <label for="email" id="emailLabel" aria-label="Email">Email</label>
+                    <input id="email" type="email" aria-labelledby="emailLabel" name="email" required>
+                </div>
+                <div>
+                    <label for="message" id="messageLabel" aria-label="Votre message">Votre message</label>
+                    <textarea id="message" aria-labelledby="messageLabel" name="message"></textarea>
+                </div>
+                <button role="button" class="contact_button" type="submit" aria-label="Envoyer le formulaire">Envoyer
+                </button>
+            </form>
+        </div>
+    </div>
+    <!--Lightbox-->
+    <div class="lightbox" tabindex="-1" aria-hidden="true" role="dialog">
+        <div class="lightbox__content">
+            <button class="lightbox__close" aria-label="Close lightbox">
+                <em class="fas fa-times"></em>
             </button>
-        </form>
+            <button class="lightbox__prev" aria-label="Previous media">
+                <em class="fas fa-chevron-left"></em>
+            </button>
+            <button class="lightbox__next" aria-label="Next media">
+                <em class="fas fa-chevron-right"></em>
+            </button>
+            <div class="lightbox__media"></div>
+            <p class="lightbox__title"></p>
+        </div>
     </div>
-</div>
-<!--Lightbox-->
-<div class="lightbox" tabindex="-1" aria-hidden="true" role="dialog">
-    <div class="lightbox__content">
-        <button class="lightbox__close" aria-label="Close lightbox">
-            <i class="fas fa-times"></i>
-        </button>
-        <button class="lightbox__prev" aria-label="Previous media">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="lightbox__next" aria-label="Next media">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-        <div class="lightbox__media"></div>
-        <p class="lightbox__title"></p>
-    </div>
-</div>
+</main>
 <script type="module" src="./scripts/pages/photographer.js"></script>
 <script type="module" src="./scripts/utils/contactForm.js"></script>
 </body>

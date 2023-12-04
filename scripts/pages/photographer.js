@@ -6,6 +6,7 @@ import {ContactForm} from "../utils/contactForm.js";
 import PhotographerMedias from "../templates/PhotographerMedias.js";
 import {displayTotalLikes} from "../utils/likes.js";
 import {displayLightbox} from "../utils/lightbox.js";
+import {displayMediaWithFilter, filterMenu} from "../utils/sortFilters.js";
 
 const photographersApi = new Api("./data/photographers.json");
 const params = new URL(document.location).searchParams;
@@ -36,6 +37,8 @@ const init = async () => {
 
   displayTotalLikes();
   ContactForm(photographer);
+  filterMenu();
+  displayMediaWithFilter(photographerMedias);
   displayLightbox(photographerMedias);
 }
 

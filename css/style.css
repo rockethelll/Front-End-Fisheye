@@ -1,6 +1,13 @@
 @import url("photographer.css");
 @import url("lightbox.css");
 
+:root {
+    --color-primary: #901C1C;
+    --color-secondary: #DB8876;
+    --color-tertiary: #D3573C;
+    --color-white: #fff;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -25,13 +32,13 @@ header a {
 }
 
 header a:focus-visible {
-    outline: 3px solid #901C1C;
+    outline: 3px solid var(--color-primary);
     border-radius: 5px;
     padding: 1px;
 }
 
 h1 {
-    color: #901C1C;
+    color: var(--color-primary);
     margin-right: 100px;
 }
 
@@ -61,7 +68,7 @@ h1 {
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease-in-out;
-    background-color: white;
+    background-color: var(--color-white);
     padding: 5px;
 }
 
@@ -71,7 +78,7 @@ h1 {
 
 .photographer_section article a:focus {
     outline: none;
-    border: 3px solid #901C1C;
+    border: 3px solid var(--color-primary);
     border-radius: 10px;
 }
 
@@ -84,13 +91,13 @@ h1 {
 }
 
 .photographer_section article h2 {
-    color: #D3573C;
+    color: var(--color-tertiary);
     font-size: 36px;
     margin-bottom: 0;
 }
 
 .photographer_section article h3 {
-    color: #901C1C;
+    color: var(--color-primary);
     margin: 2px 0 3px;
 }
 

@@ -8,7 +8,7 @@
     height: 100%;
     display: none;
     z-index: 5;
-    background: #fff;
+    background: var(--color-white);
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -19,11 +19,11 @@
 }
 
 .lightbox button {
-    color: #901C1C;
+    color: var(--color-primary);
     border: none;
     cursor: pointer;
     font-size: 48px;
-    background-color: #fff;
+    background-color: var(--color-white);
     transition: all 0.3s ease-in-out;
 }
 .lightbox button:hover {
@@ -32,7 +32,7 @@
 }
 
 .lightbox button:focus-visible {
-    outline: 3px solid #901C1C;
+    outline: 3px solid var(--color-primary);
     border-radius: 5px;
     padding: 1px;
 }
@@ -63,9 +63,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin: 0 auto;
-    background-color: lightblue;
     width: 80vw;
     height: 80vh;
     border-radius: 5px;
@@ -80,7 +78,7 @@
 }
 
 .lightbox__title {
-    color: #901C1C;
+    color: var(--color-primary);
     font-size: 24px;
     margin: 12px 5vw;
     width: 80vw;
