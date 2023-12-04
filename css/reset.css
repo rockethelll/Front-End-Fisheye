@@ -1,0 +1,31 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button,
+a{
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+button{
+    background-color: transparent;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+
+img,
+video{
+    object-fit: cover;
+    object-position: center;
+}
+
+li{
+    list-style-type: none;
+}

@@ -1,5 +1,4 @@
 const modal = document.getElementById("contact_modal");
-const body = document.querySelector('body');
 const main = document.querySelector('main');
 const openModalBtn = document.querySelector('.contact_button');
 const form = document.querySelector('form');
@@ -31,12 +30,10 @@ const displayModal = () => {
 
   // Close the modal when escape is pressed
   document.addEventListener('keydown', closeModalHandler)
-
 }
 
 // Close the modal when the user clicks on the close button
 const closeModal = () => {
-  body.classList.remove('no-scroll');
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", "true");
   main.setAttribute("aria-hidden", "false");

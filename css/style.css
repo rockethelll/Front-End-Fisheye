@@ -1,15 +1,12 @@
 @import url("photographer.css");
 @import url("lightbox.css");
+@import url("reset.css");
 
 :root {
     --color-primary: #901C1C;
     --color-secondary: #DB8876;
     --color-tertiary: #D3573C;
     --color-white: #fff;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 body {

@@ -2,34 +2,45 @@ import {displayLightbox} from "./lightbox.js";
 import {displayTotalLikes} from "./likes.js";
 
 export const filterMenu = () => {
-  const dropdownBtn = document.querySelector('.drop-btn');
-  const dropdownContent = document.querySelector('.dropdown_content');
-  const dropdownItems = document.querySelectorAll('.dropdown_content li button');
+  const dropdownBtn = document.querySelector('.dropdown__btn');
+  const dropdownContent = document.querySelector('.dropdown__content');
+  const dropdownItems = document.querySelectorAll('.dropdown__content li button');
 
   dropdownBtn.addEventListener('click', () => {
+    document.querySelector('.fa-chevron-up').classList.toggle('chevron-rotate');
     const isExpanded = dropdownBtn.getAttribute('aria-expanded') === 'true';
 
     dropdownBtn.setAttribute('aria-expanded', String(!isExpanded));
-    dropdownContent.style.display = isExpanded ? 'none' : 'flex';
+    dropdownContent.classList.toggle('display-list');
     dropdownContent.setAttribute('aria-hidden', String(isExpanded));
     dropdownItems.forEach(item => item.setAttribute('tabindex', isExpanded ? '-1' : '0'));
+    dropdownContent.focus();
   });
 };
 
 export const displayMediaWithFilter = mediasTemplate => {
   const currentFilter = document.querySelector('#current_filter');
-  const allFilters = Array.from(document.querySelectorAll('.dropdown_content li button'));
+  const allFilters = Array.from(document.querySelectorAll('.dropdown__content li button'));
 
   let filterAlreadySelected = allFilters.find(filter => filter.textContent === currentFilter.textContent);
   filterAlreadySelected.style.display = 'none';
 
+  // Add event listener on each filter button to sort medias
   allFilters.forEach(filter => {
     filter.addEventListener('click', () => {
+      allFilters.forEach(filter => filter.setAttribute('aria-selected', 'false'));
+
+      const dropdownContent = document.querySelector('.dropdown__content');
+      const dropdownBtn = document.querySelector('.dropdown__btn');
+
       currentFilter.textContent = filter.textContent;
+      filter.setAttribute('aria-selected', 'true');
       if (filterAlreadySelected) filterAlreadySelected.style.display = 'block';
       filterAlreadySelected = filter;
       filterAlreadySelected.style.display = 'none';
       sortByFilter(filter.textContent);
+      dropdownContent.classList.toggle('display-list');
+      dropdownBtn.focus();
     });
   });
 
@@ -51,5 +62,13 @@ export const displayMediaWithFilter = mediasTemplate => {
     mediasTemplate.createPhotographerMedias();
     displayLightbox(mediasTemplate);
     displayTotalLikes();
+
+    const mediaElements = document.querySelectorAll('.gallery-container');
+    mediaElements.forEach((media, index) => {
+      setTimeout(() => {
+        media.classList.add('animeCard');
+      }, 100 * index);
+      media.classList.remove('animeCard');
+    });
   };
 }

@@ -1,18 +1,3 @@
-#contact_modal {
-    display: none;
-    z-index: 5;
-    width: 100vw;
-    height: 2000px;
-    background: rgba(196, 196, 196, 0.60);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.no-scroll {
-    overflow: hidden;
-}
-
 .photograph-header {
     display: flex;
     justify-content: space-between;
@@ -88,87 +73,110 @@
     transform: scale(1.1);
 }
 
+/* Filter menu*/
 .filters {
-    margin: 10px 100px 0;
     display: flex;
     align-items: center;
+    height: 50px;
+    margin: 30px 100px;
+    gap: 10px;
 }
 
-#listboxLabel {
+.filters p {
+    font-weight: 700;
+    font-size: 18px;
     margin-right: 25px;
 }
 
 .filters__dropdown {
     position: relative;
-    display: inline-block;
+    height: 100%;
 }
 
-.dropdown_content {
-    list-style: none;
+.dropdown {
+    z-index: 10;
+    position: absolute;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.chevron-rotate {
+    transform: rotate(180deg);
+}
+
+.dropdown__content {
+    max-height: 0;
+    background-color: var(--color-primary);
+    transition: max-height .1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown__content li {
+    position: relative;
+    width: 150px;
+}
+
+.dropdown__content li::before {
+    content: "";
     position: absolute;
     top: 0;
-    width: 170px;
-    height: 170px;
-    /*background-color: #901C1C;*/
-    background-color: lightgreen;
-    border-radius: 5px;
-    margin: 0;
-    padding: 0;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 1px;
+    background-color: var(--color-white);
 }
 
-.dropdown_content button {
-    text-align: left;
-    border: none;
-    color: var(--color-white);
+.dropdown__btn,
+.dropdown__content li button {
+    height: 50px;
+    padding: 15px;
     font-size: 18px;
-    cursor: pointer;
-    padding: 0 20px;
-    background-color: transparent;
-    height: 100%;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.dropdown__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    background-color: var(--color-primary);
+}
+
+.dropdown__content li button {
     width: 100%;
+    text-align: left;
 }
 
-.dropdown_content button:hover {
-    background-color: var(--color-primary);
+.dropdown__content li button:hover,
+.dropdown__content li button:focus,
+.dropdown__btn:hover,
+.dropdown__btn:focus {
+    background-color: var(--color-secondary);
+    color: black;
 }
 
-.dropdown_content li {
-    height: 100%;
-    display: flex;
-    align-items: center;
+.display-list {
+    max-height: 170px;
+    transition: all 0.3s ease-in-out;
 }
 
-.filters button:focus-visible {
-    outline: 3px solid var(--color-primary);
-    border-radius: 5px;
-    padding: 1px;
+.animeCard {
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-.filters__dropdown .drop-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    border: none;
-    background-color: var(--color-primary);
-    border-radius: 5px;
-    color: var(--color-white);
-    width: 170px;
-    height: 70px;
-    font-size: 18px;
-    cursor: pointer;
+@keyframes fadeIn {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-
-
-
-
-
-
+/* Lightbox */
 
 .gallery-container {
     display: flex;
@@ -302,6 +310,17 @@
     transform: scale(1.1);
 }
 
+/* Contact FORM */
+#contact_modal {
+    display: none;
+    z-index: 5;
+    width: 100vw;
+    height: 2000px;
+    background: rgba(196, 196, 196, 0.60);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 .modal {
     border-radius: 5px;
@@ -379,16 +398,4 @@ form textarea {
 
 form textarea {
     height: 170px;
-}
-
-.sr-only {
-    position:absolute;
-    width:1px;
-    height:1px;
-    padding:0;
-    margin:-1px;
-    overflow:hidden;
-    clip:rect(0,0,0,0);
-    white-space:nowrap;
-    border:0
 }

@@ -27,6 +27,7 @@ export const displayLightbox = (medias) => {
     })
   })
 
+  // Display the current media in the lightbox
   const lightboxContent = () => {
     const currentMedia = mediasList[currentIndex];
 
@@ -64,6 +65,7 @@ export const displayLightbox = (medias) => {
     lightboxContent();
   }
 
+  // Close the lightbox with the escape key and navigate with the arrow keys
   const handleKeydown = e => {
     switch (e.key) {
       case 'Escape':

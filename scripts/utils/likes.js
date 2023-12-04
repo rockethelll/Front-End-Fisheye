@@ -2,7 +2,7 @@ import {getPhotographerAndMedias} from "../pages/photographer.js";
 
 // Display the total number of likes
 export const displayTotalLikes = async () => {
-  const { medias } = await getPhotographerAndMedias();
+  const {medias} = await getPhotographerAndMedias();
   const btnLikes = document.querySelectorAll('.card__likes');
 
   updateTotalLikes(medias);

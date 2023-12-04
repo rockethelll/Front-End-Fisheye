@@ -13,7 +13,7 @@ const params = new URL(document.location).searchParams;
 let photographerId = parseInt(params.get("id"));
 
 export const getPhotographerAndMedias = async () => {
-  const { photographers, media } = await photographersApi.get();
+  const {photographers, media} = await photographersApi.get();
 
   const photographer = photographers
     .map(photographer => new Photographer(photographer))
@@ -23,7 +23,7 @@ export const getPhotographerAndMedias = async () => {
     .map(media => new MediasFactory(media))
     .filter(media => media.photographerId === photographerId);
 
-  return { photographer, medias };
+  return {photographer, medias};
 };
 
 const init = async () => {
