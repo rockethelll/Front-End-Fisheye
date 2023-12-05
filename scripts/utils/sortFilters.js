@@ -28,11 +28,8 @@ export const displayMediaWithFilter = mediasTemplate => {
   // Add event listener on each filter button to sort medias
   allFilters.forEach(filter => {
     filter.addEventListener('click', () => {
-      allFilters.forEach(filter => filter.setAttribute('aria-selected', 'false'));
-
 
       currentFilter.textContent = filter.textContent;
-      filter.setAttribute('aria-selected', 'true');
       if (filterAlreadySelected) filterAlreadySelected.style.display = 'block';
       filterAlreadySelected = filter;
       filterAlreadySelected.style.display = 'none';

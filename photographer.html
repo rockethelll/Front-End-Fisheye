@@ -20,27 +20,27 @@
         <p id="listboxLabel" role="button">Trier par</p>
         <div class="filters__dropdown">
             <div class="dropdown">
-                <button class="dropdown__btn" type="button" role="button" aria-haspopup="listbox" aria-expanded="false"
-                        aria-controls="filter options" aria-label="Sort by">
+                <button class="dropdown__btn" type="button" aria-haspopup="listbox" aria-expanded="false"
+                        aria-controls="dropdown-content" aria-label="Sort by">
                     <span id="current_filter">Titre</span>
                     <span class="fas fa-chevron-up" aria-hidden="true"></span>
                 </button>
 
-                <ul class="dropdown__content" aria-hidden="true" role="listbox">
+                <ul class="dropdown__content" id="dropdown-content" aria-hidden="true" role="listbox">
                     <li role="option" aria-labelledby="listboxLabel">
-                        <button type="button" tabindex="-1" aria-label="Sort by title" aria-selected="true">Titre</button>
+                        <button type="button" tabindex="-1" aria-label="Sort by title">Titre</button>
                     </li>
                     <li role="option" aria-labelledby="listboxLabel">
-                        <button type="button" tabindex="-1" aria-label="Sort by popularity" aria-selected="false">Popularité</button>
+                        <button type="button" tabindex="-1" aria-label="Sort by popularity">Popularité</button>
                     </li>
                     <li role="option" aria-labelledby="listboxLabel">
-                        <button type="button" tabindex="-1" aria-label="Sort by date" aria-selected="false">Date</button>
+                        <button type="button" tabindex="-1" aria-label="Sort by date">Date</button>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <section class="gallery-container"></section>
+    <div class="gallery-container"></div>
 
 
     <!-- Modal form -->
@@ -52,7 +52,7 @@
                     <img src="./assets/icons/close.svg" alt="Close button" class="close-btn"
                          aria-label="Close contact form">
                 </div>
-                <p class="photographer-name" aria-label="Photographer name"></p>
+                <p class="photographer-name"></p>
             </header>
             <form>
                 <div>
@@ -71,7 +71,7 @@
                     <label for="message" id="messageLabel" aria-label="Votre message">Votre message</label>
                     <textarea id="message" aria-labelledby="messageLabel" name="message"></textarea>
                 </div>
-                <button role="button" class="contact_button" type="submit" aria-label="Envoyer le formulaire">Envoyer
+                <button class="contact_button" type="submit" aria-label="Envoyer le formulaire">Envoyer
                 </button>
             </form>
         </div>

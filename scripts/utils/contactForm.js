@@ -9,6 +9,7 @@ export const ContactForm = (photographer) => {
 
   const photographerNameOnContactForm = document.querySelector('.photographer-name');
   photographerNameOnContactForm.innerText = photographer.name;
+  photographerNameOnContactForm.setAttribute('aria-label', `Contactez ${photographer.name}`)
 
   openModalBtn.addEventListener('click', displayModal);
   closeModalBtn.addEventListener('click', closeModal);

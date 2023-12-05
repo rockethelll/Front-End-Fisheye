@@ -5,27 +5,26 @@
 }
 
 button,
-a{
+a {
     cursor: pointer;
     outline: none;
     border: none;
 }
 
-button{
+button {
     background-color: transparent;
 }
 
-a{
+a {
     text-decoration: none;
     outline: none;
 }
 
 img,
-video{
+video {
     object-fit: cover;
-    object-position: center;
 }
 
-li{
+li {
     list-style-type: none;
 }

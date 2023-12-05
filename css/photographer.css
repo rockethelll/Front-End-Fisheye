@@ -74,6 +74,7 @@
 }
 
 /* Filter menu*/
+
 .filters {
     display: flex;
     align-items: center;
@@ -311,6 +312,7 @@
 }
 
 /* Contact FORM */
+
 #contact_modal {
     display: none;
     z-index: 5;
