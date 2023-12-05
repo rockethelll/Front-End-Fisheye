@@ -35,9 +35,11 @@ export const displayLightbox = (medias) => {
       ${currentMedia.image ? `
       <img src="./assets/images/${photographer.name}/${currentMedia.image}" alt="${currentMedia.title}">`
       :
-      `<video controls autoplay loop muted aria-label="${currentMedia.title}"><source src="./assets/images/${photographer.name}/${currentMedia.video}" type="video/mp4"></video>`}
+      `<video controls loop muted aria-label="${currentMedia.title}"><source src="./assets/images/${photographer.name}/${currentMedia.video}" type="video/mp4"></video>`}
+      <figcaption class="lightbox__title">${currentMedia.title}</figcaption>
     `;
-    lightboxTitle.innerHTML = currentMedia.title;
+    // lightboxTitle.innerText = currentMedia.title;
+    // lightboxTitle.setAttribute('aria-label', `${currentMedia.title}`);
   }
 
   const closeLightbox = () => {

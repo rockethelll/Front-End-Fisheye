@@ -26,7 +26,6 @@
     background-color: var(--color-white);
     transition: all 0.3s ease-in-out;
 }
-
 .lightbox button:hover {
     box-shadow: 0 0 10px 2px lightgray;
     border-radius: 10px;
@@ -61,8 +60,8 @@
 
 .lightbox__media {
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin: 0 auto;
     width: 80vw;
     height: 80vh;

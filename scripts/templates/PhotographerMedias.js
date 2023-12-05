@@ -20,13 +20,13 @@ export default class PhotographerMedias {
                             ${mediaContent}
                         </a>
                         <div class="card__infos">
-                            <h2 class="card__title">${media.title}</h2>
-                                <button class="card__likes" role="button" aria-label="Like button and number of likes"  tabindex='0' data-id="${media.id}">
-                                    <div class="card__likes-likes" aria-label="Number of likes">${media.likes}</div> 
-                                    <div class="card__likes-hearts" aria-label="Like">
-                                        <i class='far fa-heart unliked visible' role='button' aria-label='Like the picture' aria-hidden='false'></i>
-                                        <i class='fas fa-heart liked' role='button' aria-label='Unlike the picture' aria-hidden='true'></i>
-                                    </div> 
+                            <h2 class="card__title" aria-label="${media.title}">${media.title}</h2>
+                                <button class="card__likes" role="button" aria-label="Like button and number of likes" data-id="${media.id}">
+                                    <span class="card__likes-likes" aria-label="Number of likes">${media.likes}</span> 
+                                    <span class="card__likes-hearts">
+                                        <i class='far fa-heart unliked visible' aria-label='Like the picture' aria-hidden='false'></i>
+                                        <i class='fas fa-heart liked' aria-label='Unlike the picture' aria-hidden='true'></i>
+                                    </span> 
                                 </button>
                         </div>
                     </article>

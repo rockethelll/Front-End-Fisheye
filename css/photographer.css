@@ -83,7 +83,7 @@
     gap: 10px;
 }
 
-.filters p {
+.filters h2 {
     font-weight: 700;
     font-size: 18px;
     margin-right: 25px;
@@ -347,6 +347,11 @@
     width: 100%;
 }
 
+.modal header h2 {
+    font-size: 48px;
+    font-weight: normal;
+}
+
 .modal .header {
     display: flex;
     justify-content: space-between;
@@ -354,6 +359,7 @@
 
 .modal .header img {
     cursor: pointer;
+    object-fit: none;
 }
 
 .modal .header h2 {
