@@ -30,8 +30,6 @@ export const displayMediaWithFilter = mediasTemplate => {
     filter.addEventListener('click', () => {
       allFilters.forEach(filter => filter.setAttribute('aria-selected', 'false'));
 
-      const dropdownContent = document.querySelector('.dropdown__content');
-      const dropdownBtn = document.querySelector('.dropdown__btn');
 
       currentFilter.textContent = filter.textContent;
       filter.setAttribute('aria-selected', 'true');
@@ -39,8 +37,6 @@ export const displayMediaWithFilter = mediasTemplate => {
       filterAlreadySelected = filter;
       filterAlreadySelected.style.display = 'none';
       sortByFilter(filter.textContent);
-      dropdownContent.classList.toggle('display-list');
-      dropdownBtn.focus();
     });
   });
 
