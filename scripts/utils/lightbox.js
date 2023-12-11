@@ -4,7 +4,6 @@ export const displayLightbox = (medias) => {
   const previousBtn = document.querySelector('.lightbox__prev');
   const closeBtn = document.querySelector('.lightbox__close');
   const lightboxMedia = document.querySelector('.lightbox__media');
-  const lightboxTitle = document.querySelector('.lightbox__title');
   const mediaProvider = Array.from(document.querySelectorAll('.gallery__card a'));
 
   const photographer = medias.photographer;
